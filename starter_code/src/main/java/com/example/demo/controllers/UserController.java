@@ -1,6 +1,8 @@
 package com.example.demo.controllers;
 
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
@@ -20,6 +22,8 @@ import com.example.demo.model.requests.CreateUserRequest;
 @RestController
 @RequestMapping("/api/user")
 public class UserController {
+
+	private static final Logger LOGGER = LoggerFactory.getLogger(UserController.class);
 	
 	@Autowired
 	private UserRepository userRepository;
@@ -50,10 +54,12 @@ public class UserController {
 		user.setCart(cart);
 		if(createUserRequest.getPassword().length()<7
 				|| !createUserRequest.getPassword().equals(createUserRequest.getConfirmPassword())){
+			LOGGER.warn("Week password or password mismatch for user: {}", user.getUsername());
 			return ResponseEntity.badRequest().build();
 		}
 		user.setPassword(bCryptPasswordEncoder.encode(createUserRequest.getPassword()));
 		userRepository.save(user);
+		LOGGER.info("New user created: {}", user.getUsername());
 		return ResponseEntity.ok(user);
 	}
 	

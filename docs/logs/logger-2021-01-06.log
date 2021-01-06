@@ -1,0 +1,7 @@
+2021-01-06 10:03:07.105  WARN 25148 --- [nio-8080-exec-4] c.e.demo.controllers.UserController      : Week password or password mismatch for user: test
+2021-01-06 10:08:30.363  INFO 25148 --- [nio-8080-exec-8] c.e.demo.controllers.UserController      : New user created: test
+2021-01-06 10:11:02.451  WARN 25148 --- [nio-8080-exec-5] .w.s.m.s.DefaultHandlerExceptionResolver : Resolved [org.springframework.web.HttpRequestMethodNotSupportedException: Request method 'GET' not supported]
+2021-01-06 10:11:19.832  WARN 25148 --- [nio-8080-exec-6] c.e.demo.controllers.OrderController     : User: tes, not found on order submit
+2021-01-06 10:11:27.148  INFO 25148 --- [nio-8080-exec-7] c.e.demo.controllers.OrderController     : New order submitted by: test, id: 1
+2021-01-06 10:12:31.408  INFO 25148 --- [io-8080-exec-10] c.e.demo.controllers.OrderController     : New order submitted by: test, id: 2
+2021-01-06 10:12:56.041  WARN 25148 --- [nio-8080-exec-1] c.e.demo.controllers.OrderController     : User: tes, not found on order history
